@@ -1,12 +1,19 @@
 import React, { Children } from "react";
-import type { LayoutProps } from "../../types/pageWithLayout";
 import { useRouter } from "next/router";
 import Link, { LinkProps } from "next/link";
 import Navbar from "../navbar";
 import Footer from "../footer";
 import "../../styles/layout/mainLayout.module.css";
 
-const MainLayout: LayoutProps = ({ children }) => {
+type MainLayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function MainLayout({ children }: MainLayoutProps) {
+  if (!children) {
+    return <p>Error</p>;
+  }
+
   return (
     <>
       <Navbar></Navbar>
@@ -14,6 +21,4 @@ const MainLayout: LayoutProps = ({ children }) => {
       <Footer></Footer>
     </>
   );
-};
-
-export default MainLayout;
+}

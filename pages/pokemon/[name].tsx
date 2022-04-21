@@ -1,6 +1,7 @@
 //pages/pokemon/[name].tsx
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import MainLayout from "../../components/layouts/mainLayout";
 import { InferGetStaticPropsType } from "next";
@@ -78,6 +79,11 @@ const Pokemon = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
+  if (!pokemonData) {
+    console.log("PAGE DOES NOT EXIST");
+    return <p>FAILED...</p>;
+  }
+
   const { name } = router.query;
 
   if (router.isFallback) {
@@ -113,10 +119,12 @@ const Pokemon = ({
         style={sectionStyle}
       >
         <h1 className={"capitalize " + styles.h1}>{name}</h1>
-        <img
+        <Image
           className={styles.sprite}
           src={pokemonData.sprites.front_default}
           alt=""
+          height="96px"
+          width="96px"
         />
       </section>
       <h2>Types</h2>
@@ -128,15 +136,27 @@ const Pokemon = ({
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await Axios.get(
-    `https://pokeapi.co/api/v2/pokemon/${context.params?.name}/`
-  );
+  try {
+    const res = await Axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${context.params?.name}/`
+    );
 
-  const pokemonData = data;
+    if (res.status == 404 || !res.data) {
+      return {
+        notFound: true,
+      };
+    }
 
-  return {
-    props: { pokemonData },
-  };
+    const pokemonData = res.data;
+
+    return {
+      props: { pokemonData },
+    };
+  } catch (Error) {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -149,7 +169,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
