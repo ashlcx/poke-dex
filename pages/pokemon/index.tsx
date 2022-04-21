@@ -12,6 +12,7 @@ const Home = () => {
       </Head>
       <div id="HomePage">
         <h1>Pokedex - Generation 1</h1>
+        <p>List of all the pokemans</p>
       </div>
     </>
   );
