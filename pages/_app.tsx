@@ -7,6 +7,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 
 import "../styles/reset.css";
 import "../styles/globals.css";
+import Head from "next/head";
 
 type AppLayoutProps = AppProps & {
   Component: PageWithLayoutType;
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps }: AppLayoutProps) {
   const Layout =
     Component.layout || ((children: ReactElement) => <>{children}</>);
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }
 export default MyApp;

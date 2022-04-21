@@ -1,0 +1,15 @@
+.titleSection {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1 {
+  font-weight: bolder;
+}
+
+.sprite {
+  transform: scale(1.5);
+}

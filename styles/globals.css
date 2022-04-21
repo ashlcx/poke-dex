@@ -29,3 +29,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.inline {
+  display: inline;
+}
