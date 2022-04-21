@@ -1,6 +1,4 @@
-import React, { Children } from "react";
-import { useRouter } from "next/router";
-import Link, { LinkProps } from "next/link";
+import React from "react";
 import Navbar from "../navbar";
 import Footer from "../footer";
 import "../../styles/layout/mainLayout.module.css";

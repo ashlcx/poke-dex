@@ -2,8 +2,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import MainLayout from "../components/layouts/mainLayout";
 
-import styles from "../styles/Home.module.css";
-
 const Home = () => {
   return (
     <>
