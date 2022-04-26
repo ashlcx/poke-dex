@@ -9,111 +9,9 @@ import { InferGetStaticPropsType } from "next";
 import styles from "../../styles/pokemon.module.css";
 import Axios from "axios";
 
-import { BuildableResource, Properties } from "tapi.js";
-import { Stats } from "fs";
-
-@Properties.Resource
-class PokemonSpecies extends BuildableResource {
-  public name: string = "unassigned";
-  public url: string = "unassigned";
-
-  // Define a constructor with no arguments.
-  constructor() {
-    super();
-  }
-}
-
-@Properties.Resource
-class PokemonGeneration extends BuildableResource {
-  //@Properties.ListOf(PokemonSpecies)
-  public pokemon_species: PokemonSpecies[] = [];
-
-  // Define a constructor with no arguments.
-  constructor() {
-    super();
-  }
-}
-
-type Pokeman = {
-  id: number;
-  name: string;
-  types: Array<type>;
-  description: string;
-  sprite: string;
-  stats: Array<pokemonStat>;
-};
-
-type type = {
-  slot: number;
-  type: {
-    name: string;
-    url: string;
-  };
-};
-
-type pokemonStat = {
-  base_stat: number;
-  effort: number;
-  stat_name: string;
-};
-
-const getColourFromType = (type: string): string => {
-  var result: string;
-
-  switch (type) {
-    case "electric":
-      result = "#FFFF00";
-      break;
-    case "poison":
-      result = "#9400D3";
-      break;
-    case "grass":
-      result = "#008000";
-      break;
-    case "fire":
-      result = "#FF8C00";
-      break;
-    case "water":
-      result = "#0000FF";
-      break;
-    case "flying":
-      result = "#00BFFF";
-      break;
-    case "psychic":
-      result = "#FF00FF";
-      break;
-    case "bird":
-      result = "#FFFAF0";
-      break;
-    case "ice":
-      result = "#AFEEEE";
-      break;
-    case "flying":
-      result = "#40E0D0";
-      break;
-    case "normal":
-      result = "#708090";
-      break;
-    case "bug":
-      result = "#9ACD32";
-      break;
-    case "rock":
-      result = "#A0522D";
-      break;
-    case "ghost":
-      result = "#778899";
-      break;
-    case "ground":
-      result = "#F4A460";
-      break;
-    case "fairy":
-      result = "#EE82EE";
-      break;
-    default:
-      result = "black";
-  }
-  return result;
-};
+import { capitalize } from "../../util/capitalize";
+import { Pokeman, pokemonStat, PokemonGeneration } from "../../types/pokemon";
+import { getColourFromType } from "../../util/typeColours";
 
 function Pokemon({
   pokemanDetails,
@@ -126,7 +24,7 @@ function Pokemon({
 
   var pokemonData: Pokeman = pokemanDetails;
 
-  console.log(pokemonData.stats);
+  //console.log(pokemonData.stats);
 
   if (pokemonData.types.length === 1) {
     var G_PRI = getColourFromType(pokemonData.types[0].type.name);
@@ -144,13 +42,38 @@ function Pokemon({
   var pid = npid.toString();
   pid = pid.padStart(3, "0");
 
+  const stats: JSX.Element[] = [];
+
+  pokemonData.stats.forEach((stat) => {
+    const barStyle = {
+      width: `${(stat.base_stat / 250) * 100}%`,
+    };
+
+    stats.push(
+      <tr key={stat.stat_name} className={styles.row}>
+        <td>
+          {capitalize(
+            stat.stat_name.replace("special", "sp.").split("-").join(" ")
+          )
+            .replace("attack", "Atk")
+            .replace("defense", "Def")}
+        </td>
+        <td>{stat.base_stat}</td>
+        <td className={styles.bar_td}>
+          <div className={styles.bar} style={barStyle}></div>
+        </td>
+      </tr>
+    );
+  });
+
   return (
     <>
       {
         <Head>
-          <title>{pokemonData.name} | PokeDex</title>
+          <title>{capitalize(pokemonData.name)} | PokeDex</title>
         </Head>
       }
+
       <section
         id="titleSection"
         className={styles.titleSection}
@@ -170,7 +93,66 @@ function Pokemon({
         }
         {<p>{pokemonData.description}</p>}
       </section>
-      <h2>Profile</h2>
+      <section>
+        <h2>PokeDex Data</h2>
+        <table>
+          <tbody>
+            <tr className={styles.row}>
+              <td>Number</td>
+              <td>{pokemonData.id}</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Types</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Height</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Weight</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Abilities</td>
+              <td>TODO</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>Training</h2>
+        <table>
+          <tbody>
+            <tr className={styles.row}>
+              <td>Catch Rate</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Base Friendship</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Base Exp</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Growth Rate</td>
+              <td>TODO</td>
+            </tr>
+            <tr className={styles.row}>
+              <td>Abilities</td>
+              <td>TODO</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>Base Stats</h2>
+        <table>
+          <tbody>{stats}</tbody>
+        </table>
+      </section>
     </>
   );
 }
@@ -212,6 +194,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     types: types,
     stats: stats,
   };
+
+  console.log({
+    pokemon: pokemonRequest.data,
+    species: speciesRequest.data,
+  });
 
   return {
     props: { pokemanDetails },
