@@ -291,7 +291,7 @@ function Pokemon({
         {
           <Image
             className={styles.sprite}
-            src={pokemonData.sprite}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`}
             alt=""
             height="96px"
             width="96px"
@@ -369,7 +369,7 @@ function Pokemon({
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const pokemonRequest = await Axios.get(
-    `https://pokeapi.co/api/v2/pokemon/${context.params?.name}/`
+    `${process.env.API}/api/v2/pokemon/${context.params?.name}/`
   );
 
   var pokemonID: number = pokemonRequest.data.id;
@@ -391,7 +391,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const speciesRequest = await Axios.get(
-    `https://pokeapi.co/api/v2/pokemon-species/${pokemonID}`
+    `${process.env.API}/api/v2/pokemon-species/${pokemonID}`
   );
 
   const pokemanDetails: Pokeman = {
@@ -400,7 +400,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     description: speciesRequest.data.flavor_text_entries[0].flavor_text
       .replace(/\n/g, " ")
       .replace(/\f/g, " "),
-    sprite: pokemonRequest.data.sprites.front_default,
+    //sprite: pokemonRequest.data.sprites.front_default,
     types: types,
     stats: stats,
     height: pokemonRequest.data.height,
@@ -431,9 +431,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await Axios.get("https://pokeapi.co/api/v2/generation/1/");
+  const { data } = await Axios.get(`${process.env.API}/api/v2/generation/1/`);
 
   let pokemonGeneration = new PokemonGeneration().fromJSON(data);
+  //console.log(pokemonGeneration);
 
   const paths = pokemonGeneration.pokemon_species.map((pokemon_list) => ({
     params: { name: pokemon_list.name },

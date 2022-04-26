@@ -65,7 +65,7 @@
   padding: 0.25rem;
   margin: auto;
   border: solid 2px black;
-  width: 5rem;
+  width: 6rem;
   height: auto;
   text-align: center;
 }
@@ -73,4 +73,9 @@
 .evo_table,
 .evo_tbody {
   width: 100%;
+}
+
+.pokemon_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
 }

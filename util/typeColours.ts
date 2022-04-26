@@ -50,8 +50,11 @@ export const getColourFromType = (type: string): string => {
     case "fairy":
       result = "#EE82EE";
       break;
-    case "dragon": 
-      result = "#FF6347"
+    case "dragon":
+      result = "#FF6347";
+      break;
+    case "fighting":
+      result = "brown";
       break;
     default:
       result = "black";

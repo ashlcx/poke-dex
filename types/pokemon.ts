@@ -1,5 +1,12 @@
 import { Properties, BuildableResource } from "tapi.js";
 
+export type species = {
+  name: string;
+  url: string;
+  id: number;
+  types?: Array<type>;
+};
+
 @Properties.Resource
 export class PokemonSpecies extends BuildableResource {
   public name: string = "unassigned";
@@ -27,7 +34,7 @@ export type Pokeman = {
   name: string;
   types: Array<type>;
   description: string;
-  sprite: string;
+  //sprite: string;
   stats: Array<pokemonStat>;
   height: number;
   baseXP: number;
