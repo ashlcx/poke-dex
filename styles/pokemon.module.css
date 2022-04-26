@@ -35,3 +35,42 @@
   height: 1rem;
   border-radius: 5px;
 }
+
+.type {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  padding: 0.25rem;
+  margin-right: 0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  border: solid 2px black;
+  width: 5rem;
+  height: auto;
+}
+
+.ability {
+  display: inline-block;
+}
+
+.hidden_ability {
+  font-size: 0.5rem;
+  font-style: italic;
+}
+
+.pokemon_pill {
+  border-radius: 5px;
+  color: black;
+  padding: 0.25rem;
+  margin: auto;
+  border: solid 2px black;
+  width: 5rem;
+  height: auto;
+  text-align: center;
+}
+
+.evo_table,
+.evo_tbody {
+  width: 100%;
+}
