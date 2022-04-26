@@ -13,8 +13,8 @@ body {
 }
 
 #__next {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .full {
@@ -40,5 +40,18 @@ a {
 }
 
 .bold {
+  font-weight: bold;
+}
+
+.page_wrapper {
+  margin: 0.5rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
   font-weight: bold;
 }

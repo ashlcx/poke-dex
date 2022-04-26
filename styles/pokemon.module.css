@@ -1,3 +1,24 @@
+/* searchBar */
+
+.search_bar {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+}
+
+.search_bar .search_input {
+  width: 100%;
+  padding: 8px 6px 8px 36px;
+}
+
+.search_bar .icon {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 13px 15px 13px 11px;
+}
+
 .titleSection {
   height: 10rem;
   display: flex;
@@ -60,10 +81,10 @@
 }
 
 .pokemon_pill {
+  margin: auto;
   border-radius: 5px;
   color: black;
   padding: 0.25rem;
-  margin: auto;
   border: solid 2px black;
   width: 6rem;
   height: auto;
@@ -78,4 +99,5 @@
 .pokemon_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  row-gap: 1rem;
 }

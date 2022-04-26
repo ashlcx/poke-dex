@@ -10,6 +10,9 @@ import {
 } from "../../types/pokemon";
 import { InferGetStaticPropsType } from "next";
 import List from "../../components/list";
+import styles from "../../styles/pokemon.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function PokemonIndex({
   GenerationJSON,
@@ -36,15 +39,19 @@ function PokemonIndex({
       <Head>
         <title>PokeDex</title>
       </Head>
-      <div id="PokemonPage">
-        <h1>Pokedex - Generation 1</h1>
-        <p>List of all the pokemans</p>
-        <input
-          onChange={(event) => updateSearch(event)}
-          type="text"
-          name=""
-          id=""
-        />
+      <div id="PokemonPage" className="page_wrapper">
+        <h1>1st Gen Pokemon</h1>
+        <div className={styles.search_bar}>
+          <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.icon} />
+          <input
+            className={styles.search_input}
+            onChange={(event) => updateSearch(event)}
+            type="text"
+            name=""
+            id=""
+          />
+        </div>
+
         <List species={sortedPokemon} input={inputText} />
       </div>
     </>
