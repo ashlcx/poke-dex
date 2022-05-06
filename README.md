@@ -34,3 +34,4 @@ At the end of the process I decided on how to do the fonts, I decided on using a
 - I wanted to include type colours on the little pokemon cards, however with the design of the API, pulling a generation down didnt include types in the list and having to pull 151 pages again caused the build process to reach API limits
 - I could of probably remodelled the layout for the pokedex data pages on desktop, spreading them out a bit.
 - More use of colour could add to the overall apperance of the page.
+- I wanted to use jest testing to confirm elements where rendering correctly in the right place to ensure things didnt break during development but I couldnt get that working either.
