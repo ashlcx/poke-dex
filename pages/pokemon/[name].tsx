@@ -305,23 +305,23 @@ function Pokemon({
           <table>
             <tbody>
               <tr className={styles.row}>
-                <td className="bold">Number</td>
+                <td className={"bold " + styles.limit_row}>Number</td>
                 <td>{pokemonData.id}</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Types</td>
+                <td className={"bold " + styles.limit_row}>Types</td>
                 <td>{types}</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Height</td>
+                <td className={"bold " + styles.limit_row}>Height</td>
                 <td>{formatToMetric(pokemonData.height)}m</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Weight</td>
+                <td className={"bold " + styles.limit_row}>Weight</td>
                 <td>{formatToMetric(pokemonData.weight)}kg</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Abilities</td>
+                <td className={"bold " + styles.limit_row}>Abilities</td>
                 <td>{abilities}</td>
               </tr>
             </tbody>
@@ -332,19 +332,19 @@ function Pokemon({
           <table>
             <tbody>
               <tr className={styles.row}>
-                <td className="bold">Catch Rate</td>
+                <td className={"bold " + styles.limit_row}>Catch Rate</td>
                 <td>{pokemonData.catchRate}</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Base Friendship</td>
+                <td className={"bold " + styles.limit_row}>Base Friendship</td>
                 <td>{pokemonData.baseFriendship}</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Base Exp</td>
+                <td className={"bold " + styles.limit_row}>Base Exp</td>
                 <td>{pokemonData.baseXP}</td>
               </tr>
               <tr className={styles.row}>
-                <td className="bold">Growth Rate</td>
+                <td className={"bold " + styles.limit_row}>Growth Rate</td>
                 <td>{capitalize(pokemonData.growthRate)}</td>
               </tr>
             </tbody>

@@ -14,7 +14,6 @@ type props = {
 const Navbar = (props: props) => {
   const toggleDarkMode = () => {
     props.setDarkMode(!props.isDarkMode);
-    console.log(`toggling Dark mode to ${props.isDarkMode}`);
   };
 
   return (
