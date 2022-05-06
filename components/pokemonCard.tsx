@@ -17,7 +17,7 @@ const PokemonCard = (props: props): JSX.Element => {
         height="96px"
         width="96px"
       />
-      {capitalize(props.name)}
+      <p>{capitalize(props.name)}</p>
     </div>
   );
 };

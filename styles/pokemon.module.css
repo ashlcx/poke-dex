@@ -48,6 +48,10 @@
   padding: 1rem;
 }
 
+.limit_row {
+  width: 10rem;
+}
+
 .row td {
   padding: 0.25rem;
 }
@@ -104,8 +108,9 @@
   padding: 0.25rem;
   margin-bottom: 1rem;
   border: solid 2px var(--C_FONT);
-  width: 8rem;
+  width: 7rem;
   height: auto;
+  font-size: 0.6rem;
   text-align: center;
 }
 
@@ -116,6 +121,6 @@
 
 .pokemon_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
   gap: 1rem;
 }
