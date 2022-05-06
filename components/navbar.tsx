@@ -34,7 +34,11 @@ const Navbar = (props: props) => {
               </Link>
             </li>
             <li>
-              <Pokeball height="2.5rem" />
+              <Link href="/">
+                <a>
+                  <Pokeball height="2.5rem" />
+                </a>
+              </Link>
             </li>
             <li>
               <FontAwesomeIcon icon={faSun} onClick={toggleDarkMode} />
