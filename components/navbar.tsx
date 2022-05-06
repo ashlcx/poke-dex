@@ -23,16 +23,7 @@ const Navbar = (props: props) => {
       <header className={styles.nav}>
         <nav className="full">
           <ul className={styles.nav_ul + " full"}>
-            <li>
-              <Link href="/pokemon">
-                <a>
-                  <FontAwesomeIcon
-                    icon={faMagnifyingGlass}
-                    className={styles.inline}
-                  />
-                </a>
-              </Link>
-            </li>
+            <li className={styles.filler}></li>
             <li>
               <Link href="/">
                 <a>
