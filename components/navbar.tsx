@@ -4,7 +4,6 @@ import styles from "../styles/layout/mainLayout.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faSun } from "@fortawesome/free-solid-svg-icons";
 
-import Pokeball from "./pokeball";
 import Link from "next/link";
 
 type props = {
@@ -24,14 +23,15 @@ const Navbar = (props: props) => {
         <nav className="full">
           <ul className={styles.nav_ul + " full"}>
             <li className={styles.filler}></li>
-            <li>
+            <li className={styles.logo}>
               <Link href="/">
-                <a>
-                  <Pokeball height="2.5rem" />
-                </a>
+                <a>Pokedex</a>
               </Link>
             </li>
-            <li onClick={toggleDarkMode} className={styles.toggleDarkMode}>
+            <li
+              onClick={toggleDarkMode}
+              className={styles.toggleDarkMode + " icon"}
+            >
               <FontAwesomeIcon icon={faSun} />
             </li>
           </ul>

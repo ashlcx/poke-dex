@@ -1,3 +1,13 @@
+@font-face {
+  font-family: pokemonGB;
+  src: url("/pokemonGB.ttf");
+}
+
+@font-face {
+  font-family: pokemonLogo;
+  src: url("/pokemonLogo.ttf");
+}
+
 :root {
   --PRIMARY: rgba(227, 53, 3, 1);
   --C_BG: white;
@@ -15,8 +25,8 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: pokemonGB;
+  line-height: 120%;
 }
 
 #__next {
@@ -27,6 +37,7 @@ body {
   background-color: var(--C_BG);
   color: var(--C_FONT);
   align-items: stretch;
+  font-size: 0.7rem;
 }
 
 main {
@@ -78,7 +89,7 @@ a {
 }
 
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   padding-bottom: 0.5rem;
 }
@@ -99,4 +110,8 @@ footer {
   height: 3rem;
   background-color: var(--PRIMARY);
   color: black;
+}
+
+.icon {
+  font-size: 1rem;
 }

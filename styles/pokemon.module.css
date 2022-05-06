@@ -50,7 +50,6 @@
 
 .row td {
   padding: 0.25rem;
-  white-space: nowrap;
 }
 
 .bar_td {
@@ -73,7 +72,7 @@
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   border: solid 2px var(--C_FONT);
-  width: 5rem;
+  width: 7rem;
   height: auto;
 }
 
@@ -93,6 +92,7 @@
   padding: 0.25rem;
   border: solid 2px var(--C_FONT);
   max-width: 10rem;
+  font-size: 0.6rem;
   height: auto;
   text-align: center;
 }
@@ -104,7 +104,7 @@
   padding: 0.25rem;
   margin-bottom: 1rem;
   border: solid 2px var(--C_FONT);
-  width: 6rem;
+  width: 8rem;
   height: auto;
   text-align: center;
 }

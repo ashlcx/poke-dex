@@ -32,3 +32,8 @@
   width: 16px;
   height: 16px;
 }
+
+.logo {
+  font-family: pokemonLogo;
+  font-size: 2rem;
+}

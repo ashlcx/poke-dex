@@ -1,6 +1,5 @@
 export const getColourFromType = (type: string): string => {
   var result: string;
-
   switch (type) {
     case "electric":
       result = "#FFFF00";
@@ -55,6 +54,9 @@ export const getColourFromType = (type: string): string => {
       break;
     case "fighting":
       result = "brown";
+      break;
+    case "steel":
+      result = "grey";
       break;
     default:
       result = "black";
