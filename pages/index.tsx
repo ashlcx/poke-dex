@@ -45,8 +45,8 @@ function PokemonIndex({
             className={styles.search_input}
             onChange={(event) => updateSearch(event)}
             type="text"
-            name=""
-            id=""
+            name="search"
+            id="search"
           />
         </div>
 
