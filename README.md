@@ -35,3 +35,4 @@ At the end of the process I decided on how to do the fonts, I decided on using a
 - I could of probably remodelled the layout for the pokedex data pages on desktop, spreading them out a bit.
 - More use of colour could add to the overall apperance of the page.
 - I wanted to use jest testing to confirm elements where rendering correctly in the right place to ensure things didnt break during development but I couldnt get that working either.
+- I could of added in language filtering, but feel like the juice aint worth the squeeze, this is why some descriptions are in other languages in the production build as the development build uses a container locally which only uses english in comparision to the produciton API which includes more languages.
