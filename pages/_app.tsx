@@ -11,28 +11,31 @@ import { useEffect, useState } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
   // Dark Mode Code - Uses local storage for persitance
   const [isDarkMode, setDarkMode] = useState(false);
+  const [gotLS, setGotLS] = useState(false);
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.setAttribute("data-theme", "dark");
+    var json = localStorage.getItem("site-dark-mode");
+    if (!json) json = "false";
+    const currentMode = JSON.parse(json);
+    if (currentMode) {
+      setDarkMode(true);
     } else {
-      document.documentElement.setAttribute("data-theme", "light");
+      setDarkMode(false);
     }
-    const json = JSON.stringify(isDarkMode);
-    localStorage.setItem("site-dark-mode", json);
-  }, [isDarkMode]);
+    setGotLS(true);
+  }, []);
 
   useEffect(() => {
-    const json = localStorage.getItem("site-dark-mode");
-    if (json) {
-      const currentMode = JSON.parse(json);
-      if (currentMode) {
-        setDarkMode(true);
+    if (gotLS) {
+      if (isDarkMode) {
+        document.documentElement.setAttribute("data-theme", "dark");
       } else {
-        setDarkMode(false);
+        document.documentElement.setAttribute("data-theme", "light");
       }
+      const json = JSON.stringify(isDarkMode);
+      localStorage.setItem("site-dark-mode", json);
     }
-  }, []);
+  }, [gotLS, isDarkMode]);
 
   return (
     <MainLayout isDarkMode={isDarkMode} setDarkMode={setDarkMode}>
