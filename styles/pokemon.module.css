@@ -13,6 +13,7 @@
 
 .search_bar .icon {
   position: absolute;
+  color: black;
   top: 50%;
   transform: translateY(-50%);
   padding: 13px 15px 13px 11px;
@@ -24,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .titleSection p {
@@ -56,7 +58,7 @@
 }
 
 .bar {
-  background-color: black;
+  background-color: var(--C_FONT);
   height: 1rem;
   border-radius: 5px;
 }
@@ -70,7 +72,7 @@
   margin-right: 0.25rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  border: solid 2px black;
+  border: solid 2px var(--C_FONT);
   width: 5rem;
   height: auto;
 }
@@ -83,13 +85,13 @@
   font-size: 0.5rem;
   font-style: italic;
 }
-
+/* TODO dedup */
 .pokemon_pill_grid {
   margin: auto;
   border-radius: 5px;
-  color: black;
+  color: var(--C_FONT);
   padding: 0.25rem;
-  border: solid 2px black;
+  border: solid 2px var(--C_FONT);
   max-width: 10rem;
   height: auto;
   text-align: center;
@@ -98,9 +100,10 @@
 .pokemon_pill {
   margin: auto;
   border-radius: 5px;
-  color: black;
+  color: var(--C_FONT);
   padding: 0.25rem;
-  border: solid 2px black;
+  margin-bottom: 1rem;
+  border: solid 2px var(--C_FONT);
   width: 6rem;
   height: auto;
   text-align: center;

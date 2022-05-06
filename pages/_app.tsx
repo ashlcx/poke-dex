@@ -6,10 +6,36 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 import "../styles/reset.css";
 import "../styles/globals.css";
 import MainLayout from "../components/layouts/mainLayout";
+import { useEffect, useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  // Dark Mode Code - Uses local storage for persitance
+  const [isDarkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+    const json = JSON.stringify(isDarkMode);
+    localStorage.setItem("site-dark-mode", json);
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    const json = localStorage.getItem("site-dark-mode");
+    if (json) {
+      const currentMode = JSON.parse(json);
+      if (currentMode) {
+        setDarkMode(true);
+      } else {
+        setDarkMode(false);
+      }
+    }
+  }, []);
+
   return (
-    <MainLayout>
+    <MainLayout isDarkMode={isDarkMode} setDarkMode={setDarkMode}>
       <Component {...pageProps} />
     </MainLayout>
   );

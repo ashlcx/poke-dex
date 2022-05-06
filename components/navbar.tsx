@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import styles from "../styles/layout/mainLayout.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +7,17 @@ import { faMagnifyingGlass, faSun } from "@fortawesome/free-solid-svg-icons";
 import Pokeball from "./pokeball";
 import Link from "next/link";
 
-const Navbar = () => {
+type props = {
+  isDarkMode: boolean;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
+};
+
+const Navbar = (props: props) => {
+  const toggleDarkMode = () => {
+    props.setDarkMode(!props.isDarkMode);
+    console.log(`toggling Dark mode to ${props.isDarkMode}`);
+  };
+
   return (
     <>
       <header className={styles.nav}>
@@ -27,7 +37,7 @@ const Navbar = () => {
               <Pokeball height="2.5rem" />
             </li>
             <li>
-              <FontAwesomeIcon icon={faSun} />
+              <FontAwesomeIcon icon={faSun} onClick={toggleDarkMode} />
             </li>
           </ul>
         </nav>
