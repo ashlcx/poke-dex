@@ -1,7 +1,7 @@
 import React, { Children } from "react";
 
-const Footer = () => {
-  return <></>;
+const Footer = (): JSX.Element => {
+  return <footer></footer>;
 };
 
 export default Footer;

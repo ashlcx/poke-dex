@@ -12,7 +12,6 @@
 }
 
 .search_bar .icon {
-  cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -20,20 +19,25 @@
 }
 
 .titleSection {
-  height: 10rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.h1 {
+.titleSection p {
+  padding: 1rem;
+}
+
+.titleSection h1 {
+  padding: 1rem;
   font-weight: bolder;
 }
 
-.sprite {
-  transform: scale(1.25);
-}
+/* .sprite {
+  transform: scale(1.1);
+} */
 
 .row {
   width: 100%;
@@ -80,6 +84,17 @@
   font-style: italic;
 }
 
+.pokemon_pill_grid {
+  margin: auto;
+  border-radius: 5px;
+  color: black;
+  padding: 0.25rem;
+  border: solid 2px black;
+  max-width: 10rem;
+  height: auto;
+  text-align: center;
+}
+
 .pokemon_pill {
   margin: auto;
   border-radius: 5px;
@@ -99,5 +114,5 @@
 .pokemon_grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
-  row-gap: 1rem;
+  gap: 1rem;
 }

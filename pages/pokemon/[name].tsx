@@ -293,8 +293,8 @@ function Pokemon({
             className={styles.sprite}
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`}
             alt=""
-            height="96px"
-            width="96px"
+            width="128px"
+            height="128px"
           />
         }
         {<p>{pokemonData.description}</p>}

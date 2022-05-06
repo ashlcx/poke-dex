@@ -40,7 +40,9 @@ function PokemonIndex({
         <title>PokeDex</title>
       </Head>
       <div id="PokemonPage" className="page_wrapper">
-        <h1>1st Gen Pokemon</h1>
+        <div className="text_center">
+          <h1>1st Gen Pokemon</h1>
+        </div>
         <div className={styles.search_bar}>
           <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.icon} />
           <input

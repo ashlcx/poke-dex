@@ -9,7 +9,7 @@ export interface props {
 
 const PokemonCard = (props: props): JSX.Element => {
   return (
-    <div className={styles.pokemon_pill}>
+    <div className={styles.pokemon_pill_grid}>
       <Image
         className={styles.sprite}
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`}
