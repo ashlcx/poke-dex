@@ -280,88 +280,94 @@ function Pokemon({
         </Head>
       }
 
-      <section
-        id="titleSection"
-        className={styles.titleSection}
-        style={sectionStyle}
-      >
-        <h1 className={"capitalize " + styles.h1}>
-          {pokemonData.name} - #{pid}
-        </h1>
-        {
-          <Image
-            className={styles.sprite}
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`}
-            alt=""
-            width="128px"
-            height="128px"
-          />
-        }
-        {<p>{pokemonData.description}</p>}
-      </section>
-      <div className="page_wrapper">
-        <section>
-          <h2>PokeDex Data</h2>
-          <table>
-            <tbody>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Number</td>
-                <td>{pokemonData.id}</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Types</td>
-                <td>{types}</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Height</td>
-                <td>{formatToMetric(pokemonData.height)}m</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Weight</td>
-                <td>{formatToMetric(pokemonData.weight)}kg</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Abilities</td>
-                <td>{abilities}</td>
-              </tr>
-            </tbody>
-          </table>
+      <div className={styles.hero_wrapper}>
+        <section
+          id="titleSection"
+          className={styles.titleSection}
+          style={sectionStyle}
+        >
+          <h1 className={"capitalize " + styles.h1}>
+            {pokemonData.name} - #{pid}
+          </h1>
+          {
+            <Image
+              className={styles.sprite}
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonData.id}.png`}
+              alt=""
+              width="128px"
+              height="128px"
+            />
+          }
+          {<p>{pokemonData.description}</p>}
         </section>
-        <section>
-          <h2>Training</h2>
-          <table>
-            <tbody>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Catch Rate</td>
-                <td>{pokemonData.catchRate}</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Base Friendship</td>
-                <td>{pokemonData.baseFriendship}</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Base Exp</td>
-                <td>{pokemonData.baseXP}</td>
-              </tr>
-              <tr className={styles.row}>
-                <td className={"bold " + styles.limit_row}>Growth Rate</td>
-                <td>{capitalize(pokemonData.growthRate)}</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2>Base Stats</h2>
-          <table>
-            <tbody>{stats}</tbody>
-          </table>
-        </section>
-        <section>
-          <h2>Evolution Chain</h2>
-          <table className={styles.evo_table}>
-            <tbody className={styles.evo_tbody}>{evolutions}</tbody>
-          </table>
-        </section>
+        <div className={"page_wrapper " + styles.center}>
+          <div className={styles.pokemon_content_wrapper}>
+            <section>
+              <h2>PokeDex Data</h2>
+              <table>
+                <tbody>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Number</td>
+                    <td>{pokemonData.id}</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Types</td>
+                    <td>{types}</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Height</td>
+                    <td>{formatToMetric(pokemonData.height)}m</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Weight</td>
+                    <td>{formatToMetric(pokemonData.weight)}kg</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Abilities</td>
+                    <td>{abilities}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section>
+              <h2>Training</h2>
+              <table>
+                <tbody>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Catch Rate</td>
+                    <td>{pokemonData.catchRate}</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>
+                      Base Friendship
+                    </td>
+                    <td>{pokemonData.baseFriendship}</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Base Exp</td>
+                    <td>{pokemonData.baseXP}</td>
+                  </tr>
+                  <tr className={styles.row}>
+                    <td className={"bold " + styles.limit_row}>Growth Rate</td>
+                    <td>{capitalize(pokemonData.growthRate)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            <section>
+              <h2>Base Stats</h2>
+              <table>
+                <tbody>{stats}</tbody>
+              </table>
+            </section>
+            <section>
+              <h2>Evolution Chain</h2>
+              <table className={styles.evo_table}>
+                <tbody className={styles.evo_tbody}>{evolutions}</tbody>
+              </table>
+            </section>
+          </div>
+        </div>
       </div>
     </>
   );

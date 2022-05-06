@@ -42,6 +42,8 @@ body {
 
 main {
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 main,
@@ -85,6 +87,8 @@ a {
 }
 
 .page_wrapper {
+  width: 100%;
+  max-width: 1024px;
   margin: 0.5rem;
 }
 

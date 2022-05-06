@@ -21,11 +21,16 @@
 
 .titleSection {
   height: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: black;
+}
+
+.hero_wrapper {
+  width: 100%;
 }
 
 .titleSection p {
@@ -123,4 +128,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
   gap: 1rem;
+}
+
+.center {
+  margin: auto;
 }
