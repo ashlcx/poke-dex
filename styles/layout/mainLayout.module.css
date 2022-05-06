@@ -23,3 +23,7 @@
   border: none;
   height: 80%;
 }
+
+.toggleDarkMode {
+  cursor: pointer;
+}

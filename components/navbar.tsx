@@ -40,8 +40,8 @@ const Navbar = (props: props) => {
                 </a>
               </Link>
             </li>
-            <li>
-              <FontAwesomeIcon icon={faSun} onClick={toggleDarkMode} />
+            <li onClick={toggleDarkMode} className={styles.toggleDarkMode}>
+              <FontAwesomeIcon icon={faSun} />
             </li>
           </ul>
         </nav>
